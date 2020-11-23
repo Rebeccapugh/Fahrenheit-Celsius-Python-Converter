@@ -1,0 +1,73 @@
+##################################################################################
+# Program Name: Fahrenheit or Celcius Converter
+# Programmer Name: Rebecca Pugh
+# Date Created: November 21st, 2020
+# Last Date Modified: November 22nd, 2020
+# Modified by:
+# Program Description: Simple program to convert Celcius and Fahrenheit. Rejects any input not C or F 
+# for choosing which converter to use. Rejects any non-numerical input for temperatures. Can be rerun or shut down
+# after temperatures are input.
+#################################################################################
+
+# Import for os.system('pause')
+import os
+
+# Boolean to choose to rerun program, Set at True
+try_again = True
+
+# While rerunning program is set to True
+while try_again is True:
+    # Input to determine which converter to use
+    fahrenheit_or_celcius = input("Would you like to convert fahrenheit or celcius temperatures? (Enter F or C) ")
+    # If input is C
+    if fahrenheit_or_celcius == "C":
+        try:
+            celcius_to_fahrenheit = float(input("Please enter the temperature in celcius: "))
+            # Celcius to fahrenheit conversion
+            fahrenheit = (celcius_to_fahrenheit * 1.8) + 32
+            # rounding to 2 decimal places
+            fahrenheit = round(fahrenheit, 2)
+            # Output with original entered temperature and the conversion temperature
+            print("Based on a celcius temperature of: " + str(celcius_to_fahrenheit) + ", the temperature in fahrenheit is: "+ str(fahrenheit))
+        # If a number is not entered
+        except ValueError:
+            print("That is not a number! Please try again.")
+    # If input is F        
+    elif fahrenheit_or_celcius == "F":
+        # Run this code if input is a number
+        try:
+            fahrenheit_to_celcius = float(input("Please enter the temperature in fahrenheit: "))
+            # Fahrenheit to celcius conversion
+            celcius = (fahrenheit_to_celcius - 32) / 1.8
+            # Rounding to 2 decimal places
+            celcius = round(celcius, 2)
+            # Output with original entered temperature and conversion temperature
+            print("Based on a fahrenheit temperature of: " + str(fahrenheit_to_celcius) + ", the temperature in celcius is: " + str(celcius))
+        # If a number is not entered
+        except ValueError:
+            print("That is not a number! Please enter a temperature for celcius: ")
+    # If F and C are not entered when choosing
+    else:
+        print("That is not a number! Please try again.")
+
+
+    # Start of else/if else to rerun the program
+    start_again = input("Would you like to convert another temperature? (Y/N): ")
+    # Possible entries by user that they don't want to rerun the program
+    if start_again == "No":
+        try_again = False
+        os.system('pause')
+    elif start_again == "no":
+        try_again = False
+        os.system('pause')
+    elif start_again == "N":
+        try_again = False
+        os.system('pause')
+    elif start_again == "n":
+        try_again = False
+        os.system('pause')
+    # Else, rerun the program
+    else:
+        try_again = True
+# Press any key to enter, end of program
+os.system('pause')
