@@ -48,7 +48,7 @@ while try_again is True:
             print("That is not a number! Please enter a temperature for celsius: ")
     # If F and C are not entered when choosing
     else:
-        print("That is not a number! Please try again.")
+        print("Incorrect input. Please try again.")
 
 
     # Start of else/if else to rerun the program
